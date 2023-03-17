@@ -171,8 +171,8 @@ void epd_poweroff()
     config_reg.power_disable = true;
     push_cfg(&config_reg);
 
-    config_reg.ep_stv = false;
-    push_cfg(&config_reg);
+    //config_reg.ep_stv = false;
+    //push_cfg(&config_reg);
 }
 
 void epd_poweroff_all()
