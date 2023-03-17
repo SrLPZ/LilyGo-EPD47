@@ -161,6 +161,7 @@ void epd_poweron()
 
 void epd_poweroff()
 {
+    memset(&config_reg, 0, sizeof(config_reg));
     config_reg.ep_scan_direction = false;
     config_reg.pos_power_enable = false;
     push_cfg(&config_reg);
