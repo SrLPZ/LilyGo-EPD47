@@ -181,17 +181,17 @@ void epd_poweroff_all()
     //push_cfg(&config_reg);
     
     config_reg.ep_scan_direction = false;
-    config_reg.pos_power_enable = false;
-    push_cfg(&config_reg);
-    busy_delay(10 * 240);
-    config_reg.neg_power_enable = false;
-    push_cfg(&config_reg);
-    busy_delay(100 * 240);
-    config_reg.power_disable = true;
-    push_cfg(&config_reg);
+//     config_reg.pos_power_enable = false;
+//     push_cfg(&config_reg);
+//     busy_delay(10 * 240);
+//     config_reg.neg_power_enable = false;
+//     push_cfg(&config_reg);
+//     busy_delay(100 * 240);
+//     config_reg.power_disable = true;
+//     push_cfg(&config_reg);
 
-    config_reg.ep_stv = false;
-    push_cfg(&config_reg);
+//     config_reg.ep_stv = false;
+//     push_cfg(&config_reg);
 }
 
 void epd_start_frame()
