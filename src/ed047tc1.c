@@ -177,7 +177,20 @@ void epd_poweroff()
 
 void epd_poweroff_all()
 {
-    memset(&config_reg, 0, sizeof(config_reg));
+    //memset(&config_reg, 0, sizeof(config_reg));
+    //push_cfg(&config_reg);
+    
+    config_reg.ep_scan_direction = false;
+    config_reg.pos_power_enable = false;
+    push_cfg(&config_reg);
+    busy_delay(10 * 240);
+    config_reg.neg_power_enable = false;
+    push_cfg(&config_reg);
+    busy_delay(100 * 240);
+    config_reg.power_disable = true;
+    push_cfg(&config_reg);
+
+    config_reg.ep_stv = false;
     push_cfg(&config_reg);
 }
 
