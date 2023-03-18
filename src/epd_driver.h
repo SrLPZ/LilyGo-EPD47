@@ -106,6 +106,10 @@ void epd_clear();
 
 void epd_poweroff_all();
 
+void epd_scanon();
+
+void epd_scanoff();    
+
 /**
  * @brief Clear an area by flashing it.
  *
