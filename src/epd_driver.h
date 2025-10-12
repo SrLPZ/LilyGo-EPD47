@@ -106,6 +106,9 @@ void epd_clear();
 
 void epd_poweroff_all();
 
+void epd_scanon();
+
+void epd_scanoff(); 
 /**
  * @brief Clear an area by flashing it.
  *
@@ -407,4 +410,5 @@ void write_string(const GFXfont *font, const char *string, int32_t *cursor_x,
 #endif
 /******************************************************************************/
 /***        END OF FILE                                                     ***/
+
 /******************************************************************************/
