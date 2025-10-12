@@ -162,7 +162,7 @@ void epd_poweron()
 
 void epd_poweroff()
 {
-    config_reg.pos_power_enable = false;
+    // config_reg.pos_power_enable = false;
     push_cfg(&config_reg);
     busy_delay(10 * 240);
     config_reg.neg_power_enable = false;
@@ -173,6 +173,18 @@ void epd_poweroff()
 
     config_reg.ep_stv = false;
     push_cfg(&config_reg);
+}
+
+void epd_scanoff()
+{
+    config_reg.ep_scan_direction = false;
+     push_cfg(&config_reg);
+}
+
+void epd_scanon()
+{
+    config_reg.ep_scan_direction = true;
+     push_cfg(&config_reg);
 }
 
 void epd_poweroff_all()
