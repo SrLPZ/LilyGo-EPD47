@@ -12,6 +12,9 @@
 #include <string.h>
 #include <hal/gpio_ll.h>
 
+#include "soc/gpio_reg.h"
+#include "driver/gpio.h"
+#include "esp_attr.h"   // Para IRAM_ATTR
 /******************************************************************************/
 /***        macro definitions                                               ***/
 /******************************************************************************/
@@ -56,13 +59,22 @@ static epd_config_register_t config_reg;
  */
 inline static void fast_gpio_set_hi(gpio_num_t gpio_num)
 {
+#if CONFIG_IDF_TARGET_ESP32S3 || CONFIG_IDF_TARGET_ESP32C3
+    REG_WRITE(GPIO_OUT_W1TS_REG, (1 << gpio_num));
+#else
     GPIO.out_w1ts = (1 << gpio_num);
+#endif
 }
 
 inline static void fast_gpio_set_lo(gpio_num_t gpio_num)
 {
+#if CONFIG_IDF_TARGET_ESP32S3 || CONFIG_IDF_TARGET_ESP32C3
+    REG_WRITE(GPIO_OUT_W1TC_REG, (1 << gpio_num));
+#else
     GPIO.out_w1tc = (1 << gpio_num);
+#endif
 }
+
 
 inline static void IRAM_ATTR push_cfg_bit(bool bit)
 {
