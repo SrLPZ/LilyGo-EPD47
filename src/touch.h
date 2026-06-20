@@ -5,7 +5,7 @@
 #endif
 
 #include <Arduino.h>
-#include <Wire.h>
+#include "esphome/components/i2c/i2c.h"
 
 #define TOUCH_SLAVE_ADDRESS   0x5A
 
